@@ -29,14 +29,15 @@ export class createImages1602805218053 implements MigrationInterface {
             columnNames: ['orphanage_id'],
             referencedTableName: 'orphanages',
             referencedColumnNames: ['id'],
-            onUpdate: '',
-            onDelete: ''
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
           }
         ]
       }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+      await queryRunner.dropTable('images');
     }
 
 }
